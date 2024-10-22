@@ -1,17 +1,12 @@
-all_products = False
-product_details = []
+product_details = {}
 
-while not all_products:
+while True:
     product_input = input("Enter product name (or 'done' to finish): ").lower()
-    
-    if product_input != "done":
-        product_price = input("Enter price: ")
-        product_details.append(product_price)
-    else:
-        all_products = True
+    if product_input == "done":
+        break
+    product_price = int(input("Enter price: "))
+    product_details[product_input] = product_price
 
-for string in range(0, len(product_details)):
-    product_details[string]= int(product_details[string])
+total_cost = sum(product_details.values())
 
-total_cost = sum(product_details)
-print(f"Total cost: ${total_cost}")
+print(f"Total Cost: ${total_cost}")
